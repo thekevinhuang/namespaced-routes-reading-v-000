@@ -6,5 +6,12 @@ Rails.application.routes.draw do
 
   resources :posts, only: [:index, :show, :new, :create, :edit, :update]
 
+  get '/admin/comments/moderate', to: 'comments#moderate'
+
+  namespace :admin do
+    resources :stats, only: [:index]
+    resources :authors, only: [:new, :delete, :create]
+  end
+
   root 'posts#index'
 end
