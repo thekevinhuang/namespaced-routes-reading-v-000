@@ -8,7 +8,7 @@ Rails.application.routes.draw do
 
   get '/admin/comments/moderate', to: 'comments#moderate'
 
-  scope '/admin', module: 'admin' do
+  namespace :admin do
     resources :stats, only: [:index]
     resources :authors, only: [:new, :delete, :create]
   end
